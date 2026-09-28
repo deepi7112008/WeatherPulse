@@ -1,0 +1,29 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+
+  <path
+    d="M20 78
+       C20 65 30 55 43 55
+       C49 55 55 57 59 62
+       C63 52 72 46 83 46
+       C98 46 109 57 109 72
+       C109 74 109 76 108 78
+       C111 80 113 83 113 87
+       C113 94 107 99 100 99
+       H30
+       C19 99 11 91 11 82
+       C11 80 12 79 13 78Z"
+    fill="#B9C6D8"
+    stroke="#8E9AAF"
+    stroke-width="3"/>
+
+  <path
+    d="M30 75
+       C30 66 37 60 46 60
+       C51 60 56 62 59 66
+       C64 59 71 55 79 55
+       C91 55 100 64 100 75"
+    fill="none"
+    stroke="#DCE3EC"
+    stroke-width="5"
+    stroke-linecap="round"/>
+</svg>

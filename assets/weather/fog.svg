@@ -1,0 +1,26 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Fog lines -->
+  <g
+    stroke="#AEBBC9"
+    stroke-width="7"
+    stroke-linecap="round">
+
+    <line x1="18" y1="38" x2="102" y2="38"/>
+    <line x1="10" y1="58" x2="92" y2="58"/>
+    <line x1="24" y1="78" x2="110" y2="78"/>
+    <line x1="14" y1="98" x2="80" y2="98"/>
+
+  </g>
+
+  <!-- Small highlight -->
+  <g
+    stroke="#DCE3EA"
+    stroke-width="3"
+    stroke-linecap="round">
+
+    <line x1="25" y1="38" x2="55" y2="38"/>
+    <line x1="35" y1="58" x2="70" y2="58"/>
+
+  </g>
+</svg>

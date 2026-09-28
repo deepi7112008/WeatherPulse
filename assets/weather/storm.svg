@@ -1,0 +1,26 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Cloud -->
+  <path
+    d="M17 59
+       C17 48 26 40 38 40
+       C44 40 50 42 54 47
+       C58 38 67 33 77 33
+       C91 33 102 44 102 58
+       C102 60 102 62 101 64
+       C106 66 110 70 110 76
+       C110 83 104 88 97 88
+       H28
+       C18 88 11 81 11 73
+       C11 67 13 63 17 59Z"
+    fill="#5D6B82"
+    stroke="#46546A"
+    stroke-width="3"/>
+
+  <!-- Lightning -->
+  <polygon
+    points="61,65 45,91 58,91 52,111 78,81 65,81"
+    fill="#FFD43B"
+    stroke="#F0B900"
+    stroke-width="2"/>
+</svg>
