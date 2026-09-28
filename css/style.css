@@ -1,0 +1,1098 @@
+/* =========================================================
+   WEATHERPULSE
+   Main Stylesheet
+   ========================================================= */
+
+:root {
+    --bg: #eef5ff;
+    --surface: rgba(255, 255, 255, 0.82);
+    --surface-solid: #ffffff;
+    --text: #172033;
+    --muted: #718096;
+    --primary: #3977ff;
+    --primary-dark: #2459cf;
+    --border: rgba(120, 145, 180, 0.18);
+    --shadow: 0 20px 50px rgba(46, 78, 120, 0.12);
+    --radius: 24px;
+}
+
+body.dark {
+    --bg: #0d1424;
+    --surface: rgba(25, 35, 55, 0.88);
+    --surface-solid: #192338;
+    --text: #f2f6ff;
+    --muted: #9aa8bf;
+    --primary: #6c9cff;
+    --primary-dark: #4e7ee4;
+    --border: rgba(255, 255, 255, 0.09);
+    --shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+}
+
+
+/* ================= RESET ================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    color: var(--text);
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(92, 151, 255, 0.16),
+            transparent 35%
+        ),
+        var(--bg);
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* ================= HEADER ================= */
+
+.topbar {
+    width: 100%;
+
+    padding: 20px 6%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--border);
+
+    background: var(--surface);
+
+    backdrop-filter: blur(18px);
+
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.brand-icon {
+    width: 48px;
+    height: 48px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 15px;
+
+    background: linear-gradient(
+        135deg,
+        #4b8cff,
+        #75a9ff
+    );
+
+    color: white;
+
+    font-size: 25px;
+
+    box-shadow: 0 10px 25px rgba(61, 119, 255, 0.25);
+}
+
+.brand h1 {
+    font-size: 22px;
+    line-height: 1;
+}
+
+.brand h1 span {
+    color: var(--primary);
+}
+
+.brand p {
+    margin-top: 5px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+.header-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.header-btn {
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    background: var(--surface-solid);
+
+    color: var(--text);
+
+    font-weight: 700;
+
+    transition: 0.2s;
+}
+
+.header-btn:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary);
+}
+
+
+/* ================= CONTAINER ================= */
+
+.container {
+    width: min(1180px, 92%);
+
+    margin: 35px auto 60px;
+}
+
+
+/* ================= SEARCH ================= */
+
+.search-section {
+    margin-bottom: 30px;
+}
+
+.search-box {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    padding: 7px;
+
+    border-radius: 18px;
+
+    background: var(--surface-solid);
+
+    border: 1px solid var(--border);
+
+    box-shadow: var(--shadow);
+}
+
+.search-icon {
+    margin-left: 17px;
+
+    font-size: 26px;
+
+    color: var(--muted);
+}
+
+.search-box input {
+    flex: 1;
+
+    border: none;
+    outline: none;
+
+    padding: 14px 15px;
+
+    background: transparent;
+
+    color: var(--text);
+
+    font-size: 15px;
+}
+
+.search-box input::placeholder {
+    color: var(--muted);
+}
+
+.search-box button {
+    border: none;
+
+    padding: 13px 22px;
+
+    border-radius: 13px;
+
+    background: var(--primary);
+
+    color: white;
+
+    font-weight: 700;
+
+    transition: 0.2s;
+}
+
+.search-box button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}
+
+
+/* ================= SUGGESTIONS ================= */
+
+.suggestions {
+    position: absolute;
+
+    top: calc(100% + 8px);
+
+    left: 0;
+    right: 100px;
+
+    background: var(--surface-solid);
+
+    border: 1px solid var(--border);
+
+    border-radius: 15px;
+
+    box-shadow: var(--shadow);
+
+    overflow: hidden;
+
+    display: none;
+
+    z-index: 50;
+}
+
+.suggestions.show {
+    display: block;
+}
+
+.suggestion-item {
+    width: 100%;
+
+    border: none;
+
+    padding: 13px 18px;
+
+    background: transparent;
+
+    color: var(--text);
+
+    text-align: left;
+
+    display: block;
+}
+
+.suggestion-item:hover {
+    background: rgba(70, 120, 255, 0.09);
+}
+
+
+/* ================= QUICK CITIES ================= */
+
+.quick-cities {
+    margin-top: 13px;
+
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+.city-btn {
+    border: 1px solid var(--border);
+
+    padding: 6px 12px;
+
+    border-radius: 30px;
+
+    background: var(--surface);
+
+    color: var(--text);
+
+    font-size: 12px;
+
+    transition: 0.2s;
+}
+
+.city-btn:hover {
+    border-color: var(--primary);
+
+    color: var(--primary);
+
+    transform: translateY(-1px);
+}
+
+
+/* ================= DASHBOARD ================= */
+
+.dashboard {
+    display: grid;
+
+    gap: 20px;
+}
+
+
+/* ================= HERO ================= */
+
+.hero-card {
+    padding: 30px;
+
+    border-radius: var(--radius);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(66, 125, 255, 0.12),
+            var(--surface)
+        );
+
+    border: 1px solid var(--border);
+
+    box-shadow: var(--shadow);
+
+    backdrop-filter: blur(15px);
+}
+
+.location-info {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+}
+
+.eyebrow,
+.section-label {
+    color: var(--primary);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+.location-info h2 {
+    margin-top: 7px;
+
+    font-size: clamp(30px, 5vw, 48px);
+}
+
+#locationDetails {
+    color: var(--muted);
+
+    margin-top: 4px;
+}
+
+.live-indicator {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding: 7px 11px;
+
+    border-radius: 30px;
+
+    background: rgba(54, 211, 153, 0.1);
+
+    color: #20a875;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+.live-indicator span {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #2ecc8a;
+}
+
+
+/* ================= CURRENT WEATHER ================= */
+
+.current-weather {
+    margin-top: 32px;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1.2fr;
+
+    gap: 30px;
+
+    align-items: center;
+}
+
+.main-temperature {
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+}
+
+.main-temperature img {
+    width: 125px;
+    height: 125px;
+
+    object-fit: contain;
+}
+
+.temperature {
+    display: flex;
+
+    align-items: flex-start;
+
+    font-size: clamp(58px, 8vw, 92px);
+
+    line-height: 0.9;
+
+    font-weight: 800;
+
+    letter-spacing: -5px;
+}
+
+.temperature .degree {
+    font-size: 35px;
+
+    margin-top: 7px;
+
+    letter-spacing: 0;
+}
+
+#condition {
+    margin-top: 13px;
+
+    color: var(--muted);
+
+    font-size: 16px;
+
+    font-weight: 600;
+}
+
+
+/* ================= STATS ================= */
+
+.weather-stats {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+}
+
+.stat {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 16px;
+
+    border-radius: 16px;
+
+    background: rgba(127, 158, 207, 0.08);
+
+    border: 1px solid var(--border);
+}
+
+.stat-icon {
+    font-size: 22px;
+}
+
+.stat small {
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 11px;
+
+    margin-bottom: 3px;
+}
+
+.stat strong {
+    font-size: 15px;
+}
+
+
+/* ================= INSIGHT ================= */
+
+.insight-card {
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    padding: 20px 23px;
+
+    border-radius: 20px;
+
+    background: linear-gradient(
+        135deg,
+        rgba(76, 135, 255, 0.12),
+        rgba(128, 98, 255, 0.08)
+    );
+
+    border: 1px solid var(--border);
+}
+
+.insight-icon {
+    min-width: 46px;
+    height: 46px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 14px;
+
+    background: var(--primary);
+
+    color: white;
+
+    font-size: 22px;
+}
+
+.insight-card span {
+    color: var(--primary);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.3px;
+}
+
+.insight-card p {
+    margin-top: 5px;
+
+    color: var(--text);
+
+    font-size: 14px;
+}
+
+
+/* ================= SECTIONS ================= */
+
+.dashboard-section {
+    padding: 24px;
+
+    border-radius: var(--radius);
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    box-shadow: var(--shadow);
+}
+
+.section-heading {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+    margin-bottom: 20px;
+}
+
+.section-heading h3,
+.history-heading h3 {
+    margin-top: 5px;
+
+    font-size: 22px;
+}
+
+.section-description {
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+/* ================= HOURLY ================= */
+
+.hourly-container {
+    display: grid;
+
+    grid-template-columns: repeat(6, 1fr);
+
+    gap: 10px;
+
+    overflow-x: auto;
+}
+
+.hour-card {
+    min-width: 115px;
+
+    padding: 16px 10px;
+
+    text-align: center;
+
+    border-radius: 16px;
+
+    background: rgba(117, 150, 200, 0.08);
+
+    border: 1px solid var(--border);
+
+    transition: 0.2s;
+}
+
+.hour-card:hover {
+    transform: translateY(-3px);
+
+    border-color: var(--primary);
+}
+
+.hour-time {
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+.hour-card img {
+    width: 52px;
+    height: 52px;
+
+    margin: 10px auto;
+
+    display: block;
+}
+
+.hour-temp {
+    font-size: 18px;
+
+    font-weight: 800;
+}
+
+.hour-rain {
+    margin-top: 7px;
+
+    color: #3b91d1;
+
+    font-size: 11px;
+}
+
+
+/* ================= DAILY ================= */
+
+.daily-container {
+    display: grid;
+
+    gap: 9px;
+}
+
+.day-card {
+    display: grid;
+
+    grid-template-columns: 1.1fr 0.8fr 1fr 0.8fr;
+
+    align-items: center;
+
+    padding: 14px 16px;
+
+    border-radius: 15px;
+
+    background: rgba(117, 150, 200, 0.07);
+
+    border: 1px solid var(--border);
+}
+
+.day-name {
+    font-weight: 700;
+}
+
+.day-date {
+    color: var(--muted);
+
+    font-size: 11px;
+
+    margin-top: 3px;
+}
+
+.day-weather {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+.day-weather img {
+    width: 44px;
+    height: 44px;
+}
+
+.day-condition {
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+.day-temp {
+    font-weight: 800;
+}
+
+.day-rain {
+    color: #3b91d1;
+
+    font-size: 12px;
+
+    text-align: right;
+}
+
+
+/* ================= SUN ================= */
+
+.sun-grid {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+}
+
+.sun-card {
+    padding: 22px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    border-radius: 20px;
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    box-shadow: var(--shadow);
+}
+
+.sun-icon {
+    width: 48px;
+    height: 48px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 15px;
+
+    background: rgba(255, 190, 50, 0.14);
+
+    color: #f2ac18;
+
+    font-size: 25px;
+}
+
+.sun-icon.sunset {
+    background: rgba(130, 95, 220, 0.12);
+
+    color: #8762d5;
+}
+
+.sun-card span {
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+.sun-card strong {
+    display: block;
+
+    margin-top: 4px;
+
+    font-size: 20px;
+}
+
+
+/* ================= HISTORY ================= */
+
+.history-section {
+    padding: 24px;
+
+    border-radius: var(--radius);
+
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+}
+
+.history-heading {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 18px;
+}
+
+#clearHistory {
+    border: none;
+
+    background: transparent;
+
+    color: #e05252;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+.history-container {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 9px;
+}
+
+.history-item {
+    padding: 8px 13px;
+
+    border-radius: 30px;
+
+    border: 1px solid var(--border);
+
+    background: rgba(100, 130, 180, 0.08);
+
+    color: var(--text);
+
+    font-size: 12px;
+}
+
+.history-item:hover {
+    border-color: var(--primary);
+
+    color: var(--primary);
+}
+
+
+/* ================= LOADING ================= */
+
+.loading {
+    padding: 50px;
+
+    text-align: center;
+
+    color: var(--muted);
+}
+
+.spinner {
+    width: 38px;
+    height: 38px;
+
+    margin: 0 auto 13px;
+
+    border: 4px solid rgba(100, 140, 220, 0.18);
+
+    border-top-color: var(--primary);
+
+    border-radius: 50%;
+
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* ================= ERROR ================= */
+
+.error-box {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 18px;
+
+    margin-bottom: 20px;
+
+    border-radius: 16px;
+
+    background: rgba(225, 70, 70, 0.08);
+
+    border: 1px solid rgba(225, 70, 70, 0.18);
+}
+
+.error-icon {
+    width: 38px;
+    height: 38px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: #e85b5b;
+
+    color: white;
+
+    font-weight: 800;
+}
+
+.error-box h3 {
+    font-size: 14px;
+}
+
+.error-box p {
+    margin-top: 3px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    padding: 25px 20px 35px;
+
+    text-align: center;
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+footer span {
+    display: block;
+
+    margin-top: 5px;
+
+    font-size: 11px;
+}
+
+
+/* ================= UTILITY ================= */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 850px) {
+
+    .current-weather {
+        grid-template-columns: 1fr;
+    }
+
+    .hourly-container {
+        display: flex;
+    }
+
+    .hour-card {
+        flex: 0 0 115px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .topbar {
+        padding: 16px 4%;
+    }
+
+    .container {
+        width: 94%;
+
+        margin-top: 22px;
+    }
+
+    .brand h1 {
+        font-size: 18px;
+    }
+
+    .brand-icon {
+        width: 42px;
+        height: 42px;
+    }
+
+    .hero-card {
+        padding: 22px;
+    }
+
+    .main-temperature img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .temperature {
+        font-size: 55px;
+    }
+
+    .weather-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .sun-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .day-card {
+        grid-template-columns: 1fr auto;
+        gap: 10px;
+    }
+
+    .day-weather {
+        grid-column: 1 / 2;
+    }
+
+    .day-rain {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 6px;
+    }
+
+    .search-box button {
+        padding: 12px 15px;
+    }
+
+}
